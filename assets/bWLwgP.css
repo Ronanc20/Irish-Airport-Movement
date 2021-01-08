@@ -16,7 +16,7 @@
 - Media Queries
 */
 
-/* PLotly.js 
+/* PLotly.js
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* plotly.js's modebar's z-index is 1001 by default
  * https://github.com/plotly/plotly.js/blob/7e4d8ab164258f6bd48be56589dacd9bdd7fded2/src/css/_modebar.scss#L5
@@ -142,7 +142,8 @@ body {
   margin-top: 0;
   margin-bottom: 0;
   font-family: "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: Linen;
+  /*background-color: Linen;*/
+  background-image: linear-gradient(SkyBlue, MidnightBlue);
   color: rgb(50, 50, 50); }
 
 
@@ -158,10 +159,10 @@ body {
 .graphs-container {
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 10px;
+    /*background-color: GhostWhite;*/
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
 }
-
 
 .top-row {
     padding: 10px 0px 10px 20px;
@@ -176,8 +177,6 @@ body {
     border-style: outset;
 
 }
-
-
 .radio-item {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -198,7 +197,7 @@ body {
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px,1fr))
+    grid-template-columns: repeat(auto-fit, minmax(450px,1fr))
 }
 
 .info-box {
@@ -273,7 +272,7 @@ blockquote {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; 
+  color: #1EAEDB;
   text-decoration: underline;
   cursor: pointer;}
 a:hover {
@@ -357,7 +356,7 @@ select {
   border: 1px solid #D1D1D1;
   border-radius: 4px;
   box-shadow: none;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   font-family: inherit;
   font-size: inherit; /*https://stackoverflow.com/questions/6080413/why-doesnt-input-inherit-the-font-from-body*/}
 /* Removes awkward default styles on some inputs for iOS */
@@ -529,8 +528,7 @@ there.
   margin: 10px;
   padding: 15px;
   position: relative;
-  box-shadow: 2px 2px 2px lightgrey;           
+  box-shadow: 2px 2px 2px lightgrey;
  }
 
  ###############################
-

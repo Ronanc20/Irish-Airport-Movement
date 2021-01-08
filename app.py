@@ -6,18 +6,10 @@ import dash_core_components as dcc
 from dash.dependencies import Input, Output
 
 ## SOME DATASET PREPARATION
-
 df = pd.read_csv('Airport_Traffic_Data.csv')
 df = df.dropna()
 df = df.astype({"DATA": int})
 df['Foreign Airport'] = df['Foreign Airport'].str.split(')').str[0] + ')'
-
-## PREPARE DROPDOWN LISTS
-
-# countries = sorted(df['Country'].unique())
-# county_options = [
-#    {"label": str(county), "value": str(county)} for county in countries
-# ]
 
 ## START THE APP LAYOUT
 
@@ -43,7 +35,7 @@ app.layout = html.Div([
         ),
         html.Div([
             html.Img(
-                src='assets/ireland.png',
+                src='assets/flag_irish.png',
                 alt='Ireland clip art',
                 height='120px',
             ),
@@ -230,7 +222,6 @@ app.layout = html.Div([
                 config={
                     'displayModeBar': False
                 },
-                responsive=True
             )
         ],
             className='graph-box'
@@ -243,7 +234,6 @@ app.layout = html.Div([
             dcc.Graph(
                 id='map',
                 figure={},
-                responsive=True
             ),
 
         ],
@@ -274,8 +264,6 @@ bar_scales = {
     0: False,
     1: True
 }
-
-
 @app.callback(
     [Output(component_id='country_dropdown', component_property='options')],
     [Input(component_id='selected_irish_airport', component_property='value'),
