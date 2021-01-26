@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import dash
 import dash_html_components as html
@@ -10,6 +11,14 @@ df = pd.read_csv('Airport_Traffic_Data.csv')
 df = df.dropna()
 df = df.astype({"DATA": int})
 df['Foreign Airport'] = df['Foreign Airport'].str.split(')').str[0] + ')'
+
+
+# Fix a few naming conventions
+df['Country'] = np.where(df['Country'] == 'ACORES', 'PORTUGAL', df['Country'])
+df['Country'] = np.where(df['Country'] == 'ENGALND', 'ENGLAND', df['Country'])
+england_airports = ['Lydd (LYX)', 'Lynham Raf (LYE)', 'Northolt (NHT)', 'Waddington (WTN)','Yeovilton (YEO)']
+df['Country'] = np.where(df['Foreign Airport'].isin(england_airports), 'ENGLAND', df['Country'])
+df['Country'] = np.where(df['Country'] == 'UK', 'SCOTLAND', df['Country'])
 
 ## START THE APP LAYOUT
 
@@ -62,7 +71,9 @@ app.layout = html.Div([
                         {'label': 'Shannon (SNN)', 'value': 'SNN Shannon (SNN),Republic Of Ireland'},
                     ],
                     value='DUB Dublin (DUB),Republic Of Ireland',
-                    style={'color': 'black'}
+                    style={'color': 'black'},
+                    clearable=False,
+                    searchable=False
                 ),
             ],
                 className='row selections'
